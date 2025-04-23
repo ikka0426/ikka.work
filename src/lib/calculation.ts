@@ -30,8 +30,8 @@ export function breakSortCal(result: number[][], score: number): number[][] {
   for (let i = 0; i < 5; ++i) {
       breakNum += result[4][i]
   }
-  let baseLost = 100. / tapNum
-  let additionLost = 1. / breakNum
+  const baseLost = 100. / tapNum
+  const additionLost = 1. / breakNum
   let lostScore = 101 - score;
   for (let i = 0; i < 4; ++i) {
       for (let j = 0; j < 5; ++j) {
@@ -41,19 +41,19 @@ export function breakSortCal(result: number[][], score: number): number[][] {
   lostScore -= result[4][2] * (additionLostRatio[2] as number) * additionLost;
   lostScore -= result[4][3] * (baseLostRatio[4][3] as number) * baseLost + result[4][3] * (additionLostRatio[3] as number) * additionLost;
   lostScore -= result[4][4] * (baseLostRatio[4][4] as number) * baseLost + result[4][4] * (additionLostRatio[4] as number) * additionLost;
-  let legalSort = []
+  const legalSort = []
   for (let z = 0; z <= result[4][2]; ++z) {
       if (lostScore - z * (baseLostRatio[4][2] as number[])[2] * baseLost < -0.001) {
           break
       }
       for (let y = 0; y <= result[4][2] - z; ++y) {
-          let x = result[4][2] - z - y
+          const x = result[4][2] - z - y
           if (lostScore - (z * (baseLostRatio[4][2] as number[])[2] + y * (baseLostRatio[4][2] as number[])[1] + x * (baseLostRatio[4][2] as number[])[0]) * baseLost < -0.001) {
               break
           }
           for (let n = 0; n <= result[4][1]; ++n) {
-              let m = result[4][1] - n
-              let delta = lostScore - (z * (baseLostRatio[4][2] as number[])[2] + y * (baseLostRatio[4][2] as number[])[1] + x * (baseLostRatio[4][2] as number[])[0]) * baseLost
+              const m = result[4][1] - n
+              const delta = lostScore - (z * (baseLostRatio[4][2] as number[])[2] + y * (baseLostRatio[4][2] as number[])[1] + x * (baseLostRatio[4][2] as number[])[0]) * baseLost
                                     - (n * (additionLostRatio[1] as number[])[0] + m * (additionLostRatio[1] as number[])[1]) * additionLost
               if (delta < 0.0001 && delta > -0.0001) {
                   legalSort.push([n, m, x, y, z])
@@ -72,9 +72,9 @@ export function finaleScoreCal(result: number[][], breakSort: number[][]): numbe
           tapNum += result[i][j] * toTap[i]
       }
   }
-  let baseLost = 100. / tapNum
-  let finaleScore = []
-  for (let sortCase of breakSort) {
+  const baseLost = 100. / tapNum
+  const finaleScore = []
+  for (const sortCase of breakSort) {
       let caseScoreRatio = 0
       for (let i = 0; i < 4; ++i) {
           for (let j = 0; j < 5; ++j) {

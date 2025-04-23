@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { AppSidebar } from "@/components/app-sidebar"
-import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,

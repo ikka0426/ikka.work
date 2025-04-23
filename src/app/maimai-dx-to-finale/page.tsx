@@ -110,8 +110,8 @@ function ScoreCalculator() {
       <div className="flex gap-2 mb-4">
         <Button 
           onClick={() => {
-            let breakSort = breakSortCal(inputs, dxScore)
-            let finaleScore = finaleScoreCal(inputs, breakSort)
+            const breakSort = breakSortCal(inputs, dxScore)
+            const finaleScore = finaleScoreCal(inputs, breakSort)
             if (breakSort.length == finaleScore.length) {
               setResult(breakSort.map((breakSort, index) => ({
                 breakSort,
@@ -135,7 +135,7 @@ function ScoreCalculator() {
       {result !== null && (
         <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-center">
           <p className="text-sm text-muted-foreground">可能的绝赞分布及对应旧框达成率</p>
-          {result.map((res, _) => (
+          {result.map((res) => (
             <>
               <p className="text-sm">Perfect-1 共 {res.breakSort[0]} 个</p>
               <p className="text-sm">Perfect-2 共 {res.breakSort[1]} 个</p>
