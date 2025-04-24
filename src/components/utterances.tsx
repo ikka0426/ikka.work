@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Skeleton } from "./ui/skeleton";
+import { useEffect, useRef } from "react";
 
 export function Utterances() {
   const ref = useRef<HTMLDivElement>(null)
