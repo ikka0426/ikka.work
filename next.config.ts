@@ -5,15 +5,6 @@ const nextConfig: NextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
-        port: '',
-        pathname: '/**',
-        search: '',
-      },
-    ],
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from 'next/font/local'
 import "./globals.css";
 
 import { AppSidebar } from "@/components/app-sidebar"
@@ -8,6 +9,11 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { AppBreadcrumb } from "@/components/app-breadcrumb";
+
+const myFont = localFont({
+  src: './NotoSansSC-VariableFont_wght.ttf',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "ikka 的妙妙屋",
@@ -19,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh">
+    <html lang="zh" className={myFont.className}>
       <body>
         <SidebarProvider>
           <AppSidebar />

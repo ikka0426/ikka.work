@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+import { Utterances } from "@/components/utterances";
 import Image from "next/image";
 
 export default function Home() {
@@ -15,6 +16,10 @@ export default function Home() {
         <p className="block text-muted-foreground my-2">或者你也可以看看这个：</p>
         <Image src="/asahi-shakunetsu.png" alt="芹泽朝日和灼热.png" width={512} height={512} className="m-auto"/>
         <p className="block text-muted-foreground my-2 text-sm text-center">两个我推.png</p>
+        <div>
+          <p className="block text-muted-foreground my-2">在这里留下你的评论（没看到就是没加载出来，Utterances 有点慢）</p>
+          <Utterances />
+        </div>
       </div>
     </>
   );
